@@ -124,6 +124,26 @@
         p.rotation.order = "ZYX";
         p.rotation.z = 0.2;
         scene.add(p)
+
+        // Tạo hình hộp
+        const textureLoader = new THREE.TextureLoader();
+const texture = textureLoader.load('images/giang.png');
+
+// Tạo vật liệu với hình ảnh
+const boxMaterial = new THREE.MeshBasicMaterial({ map: texture });
+
+// Tạo hình hộp
+const boxGeometry = new THREE.BoxGeometry(5, 5, 5);
+
+// Tạo mesh hình hộp
+const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
+
+// Đặt vị trí của hình hộp
+boxMesh.position.set(0, 0, -1);  // Đặt vị trí trong không gian 3D
+
+// Thêm hình hộp vào scene
+scene.add(boxMesh);
+
         const data = atob(datacenter.join(''));
         let clock = new THREE.Clock();
         console.log(data);
